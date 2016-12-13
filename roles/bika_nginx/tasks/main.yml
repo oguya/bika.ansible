@@ -67,5 +67,8 @@
   tags:
     - bika-nginx
 
+- name: Generate 2048-bit dhparam
+  command: openssl dhparam -out dhparam.pem 2048 chdir=/etc/ssl/certs creates=dhparam.pem
+
 - name: Ensure NGINX is started and enabled to start at boot.
   service: name=nginx state=started enabled=yes
